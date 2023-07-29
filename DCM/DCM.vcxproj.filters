@@ -1,0 +1,266 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="pch.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="DCMDlg.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="CDCMEngine.cpp">
+      <Filter>框架模块</Filter>
+    </ClCompile>
+    <ClCompile Include="CWndManager.cpp">
+      <Filter>框架模块</Filter>
+    </ClCompile>
+    <ClCompile Include="CTaskManager.cpp">
+      <Filter>框架模块</Filter>
+    </ClCompile>
+    <ClCompile Include="DCM.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="obj.cpp">
+      <Filter>框架模块</Filter>
+    </ClCompile>
+    <ClCompile Include="CTaskThread.cpp">
+      <Filter>框架模块</Filter>
+    </ClCompile>
+    <ClCompile Include="CTaskHelperScript.cpp">
+      <Filter>游戏逻辑</Filter>
+    </ClCompile>
+    <ClCompile Include="CHttpSrvThread.cpp">
+      <Filter>游戏逻辑</Filter>
+    </ClCompile>
+    <ClCompile Include="..\include\ServiceCore\Lock.cpp">
+      <Filter>ServiceCore</Filter>
+    </ClCompile>
+    <ClCompile Include="..\include\ServiceCore\TraceService.cpp">
+      <Filter>ServiceCore</Filter>
+    </ClCompile>
+    <ClCompile Include="..\include\ServiceCore\utils.cpp">
+      <Filter>ServiceCore</Filter>
+    </ClCompile>
+    <ClCompile Include="..\include\ServiceCore\WHCommandLine.cpp">
+      <Filter>ServiceCore</Filter>
+    </ClCompile>
+    <ClCompile Include="..\include\ServiceCore\WHDataLocker.cpp">
+      <Filter>ServiceCore</Filter>
+    </ClCompile>
+    <ClCompile Include="..\include\ServiceCore\WHDataQueue.cpp">
+      <Filter>ServiceCore</Filter>
+    </ClCompile>
+    <ClCompile Include="..\include\ServiceCore\WHEncrypt.cpp">
+      <Filter>ServiceCore</Filter>
+    </ClCompile>
+    <ClCompile Include="..\include\ServiceCore\WHIniData.cpp">
+      <Filter>ServiceCore</Filter>
+    </ClCompile>
+    <ClCompile Include="..\include\ServiceCore\WHMD5CheckSum.cpp">
+      <Filter>ServiceCore</Filter>
+    </ClCompile>
+    <ClCompile Include="..\include\ServiceCore\WHRegKey.cpp">
+      <Filter>ServiceCore</Filter>
+    </ClCompile>
+    <ClCompile Include="..\include\ServiceCore\WHService.cpp">
+      <Filter>ServiceCore</Filter>
+    </ClCompile>
+    <ClCompile Include="..\include\ServiceCore\WHThread.cpp">
+      <Filter>ServiceCore</Filter>
+    </ClCompile>
+    <ClCompile Include="..\include\ShareMemory.cpp">
+      <Filter>框架模块</Filter>
+    </ClCompile>
+    <ClCompile Include="CAiTool.cpp">
+      <Filter>框架模块</Filter>
+    </ClCompile>
+    <ClCompile Include="CDrawThread.cpp">
+      <Filter>框架模块</Filter>
+    </ClCompile>
+    <ClCompile Include="CTaskScript.cpp">
+      <Filter>游戏逻辑</Filter>
+    </ClCompile>
+    <ClCompile Include="CTaskModule.cpp">
+      <Filter>游戏逻辑</Filter>
+    </ClCompile>
+    <ClCompile Include="CTaskSinglePerson.cpp">
+      <Filter>游戏逻辑</Filter>
+    </ClCompile>
+    <ClCompile Include="CTaskFormTeam.cpp">
+      <Filter>游戏逻辑</Filter>
+    </ClCompile>
+    <ClCompile Include="Dialog3.cpp">
+      <Filter>分组夹</Filter>
+    </ClCompile>
+    <ClCompile Include="Dialog2.cpp">
+      <Filter>分组夹</Filter>
+    </ClCompile>
+    <ClCompile Include="Dialog1.cpp">
+      <Filter>分组夹</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="pch.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="DCMDlg.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="DCM.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="framework.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="Resource.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="targetver.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="CDCMEngine.h">
+      <Filter>框架模块</Filter>
+    </ClInclude>
+    <ClInclude Include="CWndManager.h">
+      <Filter>框架模块</Filter>
+    </ClInclude>
+    <ClInclude Include="CTaskManager.h">
+      <Filter>框架模块</Filter>
+    </ClInclude>
+    <ClInclude Include="struct.h">
+      <Filter>框架模块</Filter>
+    </ClInclude>
+    <ClInclude Include="obj.h">
+      <Filter>框架模块</Filter>
+    </ClInclude>
+    <ClInclude Include="CTaskThread.h">
+      <Filter>框架模块</Filter>
+    </ClInclude>
+    <ClInclude Include="CTaskHelperScript.h">
+      <Filter>游戏逻辑</Filter>
+    </ClInclude>
+    <ClInclude Include="CHttpSrvThread.h">
+      <Filter>游戏逻辑</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\ServiceCore\Array.h">
+      <Filter>ServiceCore</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\ServiceCore\Define.h">
+      <Filter>ServiceCore</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\ServiceCore\Lock.h">
+      <Filter>ServiceCore</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\ServiceCore\Macro.h">
+      <Filter>ServiceCore</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\ServiceCore\ServiceCoreHead.h">
+      <Filter>ServiceCore</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\ServiceCore\TraceService.h">
+      <Filter>ServiceCore</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\ServiceCore\utils.h">
+      <Filter>ServiceCore</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\ServiceCore\WHCommandLine.h">
+      <Filter>ServiceCore</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\ServiceCore\WHDataLocker.h">
+      <Filter>ServiceCore</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\ServiceCore\WHDataQueue.h">
+      <Filter>ServiceCore</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\ServiceCore\WHEncrypt.h">
+      <Filter>ServiceCore</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\ServiceCore\WHIniData.h">
+      <Filter>ServiceCore</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\ServiceCore\WHMD5CheckSum.h">
+      <Filter>ServiceCore</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\ServiceCore\WHRegKey.h">
+      <Filter>ServiceCore</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\ServiceCore\WHService.h">
+      <Filter>ServiceCore</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\ServiceCore\WHThread.h">
+      <Filter>ServiceCore</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\ShareMemory.h">
+      <Filter>框架模块</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\ShareMemData.h">
+      <Filter>框架模块</Filter>
+    </ClInclude>
+    <ClInclude Include="CAiTool.h">
+      <Filter>框架模块</Filter>
+    </ClInclude>
+    <ClInclude Include="CDrawThread.h">
+      <Filter>框架模块</Filter>
+    </ClInclude>
+    <ClInclude Include="CTaskScript.h">
+      <Filter>游戏逻辑</Filter>
+    </ClInclude>
+    <ClInclude Include="Dialog3.h">
+      <Filter>分组夹</Filter>
+    </ClInclude>
+    <ClInclude Include="Dialog2.h">
+      <Filter>分组夹</Filter>
+    </ClInclude>
+    <ClInclude Include="Dialog1.h">
+      <Filter>分组夹</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="ServiceCore">
+      <UniqueIdentifier>{f2575ba7-3769-458e-905c-96c782634c7f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="框架模块">
+      <UniqueIdentifier>{a7a292dd-3bef-429d-9bcd-b21d2afb7749}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="头文件">
+      <UniqueIdentifier>{f0cd9504-0a51-43ee-90dd-5f5c1de7ca8f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="源文件">
+      <UniqueIdentifier>{a086c5d3-0212-4406-a657-83c74582243b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="资源文件">
+      <UniqueIdentifier>{21973153-7ce8-4c39-91eb-691c44802c99}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="游戏逻辑">
+      <UniqueIdentifier>{c0dc2a3d-15a7-4945-a91d-117620b4e9dd}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="分组夹">
+      <UniqueIdentifier>{0e04e8db-5029-418e-a746-5633feffb3f9}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="res\DCM.rc2">
+      <Filter>资源文件</Filter>
+    </None>
+    <None Include="..\Debug\全局配置.ini">
+      <Filter>源文件</Filter>
+    </None>
+    <None Include="..\Debug\GameAccount.ini">
+      <Filter>源文件</Filter>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="DCM.rc">
+      <Filter>资源文件</Filter>
+    </ResourceCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="res\DCM.ico">
+      <Filter>资源文件</Filter>
+    </Image>
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="..\Debug\res\res.txt">
+      <Filter>源文件</Filter>
+    </Text>
+  </ItemGroup>
+</Project>

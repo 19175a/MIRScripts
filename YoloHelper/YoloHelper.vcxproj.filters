@@ -1,0 +1,168 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="源文件">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;c++;cppm;ixx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="头文件">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hh;hpp;hxx;h++;hm;inl;inc;ipp;xsd</Extensions>
+    </Filter>
+    <Filter Include="资源文件">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="ServiceCore">
+      <UniqueIdentifier>{1d39c65b-6f28-4fcc-9dc7-2eb606f715a0}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="YoloHelper.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="YoloHelperDlg.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="framework.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="targetver.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="Resource.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="pch.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="struct.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\ServiceCore\Array.h">
+      <Filter>ServiceCore</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\ServiceCore\Define.h">
+      <Filter>ServiceCore</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\ServiceCore\Lock.h">
+      <Filter>ServiceCore</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\ServiceCore\Macro.h">
+      <Filter>ServiceCore</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\ServiceCore\ServiceCoreHead.h">
+      <Filter>ServiceCore</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\ServiceCore\TraceService.h">
+      <Filter>ServiceCore</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\ServiceCore\utils.h">
+      <Filter>ServiceCore</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\ServiceCore\WHCommandLine.h">
+      <Filter>ServiceCore</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\ServiceCore\WHDataLocker.h">
+      <Filter>ServiceCore</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\ServiceCore\WHDataQueue.h">
+      <Filter>ServiceCore</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\ServiceCore\WHEncrypt.h">
+      <Filter>ServiceCore</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\ServiceCore\WHIniData.h">
+      <Filter>ServiceCore</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\ServiceCore\WHMD5CheckSum.h">
+      <Filter>ServiceCore</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\ServiceCore\WHRegKey.h">
+      <Filter>ServiceCore</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\ServiceCore\WHService.h">
+      <Filter>ServiceCore</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\ServiceCore\WHThread.h">
+      <Filter>ServiceCore</Filter>
+    </ClInclude>
+    <ClInclude Include="DetectorShowDlg.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\ShareMemData.h">
+      <Filter>ServiceCore</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\ShareMemory.h">
+      <Filter>ServiceCore</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="YoloHelper.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="YoloHelperDlg.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="pch.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="..\include\ServiceCore\Lock.cpp">
+      <Filter>ServiceCore</Filter>
+    </ClCompile>
+    <ClCompile Include="..\include\ServiceCore\TraceService.cpp">
+      <Filter>ServiceCore</Filter>
+    </ClCompile>
+    <ClCompile Include="..\include\ServiceCore\utils.cpp">
+      <Filter>ServiceCore</Filter>
+    </ClCompile>
+    <ClCompile Include="..\include\ServiceCore\WHCommandLine.cpp">
+      <Filter>ServiceCore</Filter>
+    </ClCompile>
+    <ClCompile Include="..\include\ServiceCore\WHDataLocker.cpp">
+      <Filter>ServiceCore</Filter>
+    </ClCompile>
+    <ClCompile Include="..\include\ServiceCore\WHDataQueue.cpp">
+      <Filter>ServiceCore</Filter>
+    </ClCompile>
+    <ClCompile Include="..\include\ServiceCore\WHEncrypt.cpp">
+      <Filter>ServiceCore</Filter>
+    </ClCompile>
+    <ClCompile Include="..\include\ServiceCore\WHIniData.cpp">
+      <Filter>ServiceCore</Filter>
+    </ClCompile>
+    <ClCompile Include="..\include\ServiceCore\WHMD5CheckSum.cpp">
+      <Filter>ServiceCore</Filter>
+    </ClCompile>
+    <ClCompile Include="..\include\ServiceCore\WHRegKey.cpp">
+      <Filter>ServiceCore</Filter>
+    </ClCompile>
+    <ClCompile Include="..\include\ServiceCore\WHService.cpp">
+      <Filter>ServiceCore</Filter>
+    </ClCompile>
+    <ClCompile Include="..\include\ServiceCore\WHThread.cpp">
+      <Filter>ServiceCore</Filter>
+    </ClCompile>
+    <ClCompile Include="DetectorShowDlg.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="..\include\ShareMemory.cpp">
+      <Filter>ServiceCore</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="YoloHelper.rc">
+      <Filter>资源文件</Filter>
+    </ResourceCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="res\YoloHelper.rc2">
+      <Filter>资源文件</Filter>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="res\YoloHelper.ico">
+      <Filter>资源文件</Filter>
+    </Image>
+  </ItemGroup>
+</Project>
