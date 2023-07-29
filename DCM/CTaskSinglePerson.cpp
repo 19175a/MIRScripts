@@ -70,39 +70,6 @@ bool CTaskScript::TaskShiMen()
 
 	while (true)
 	{
-		if (Navigation == _T("judgmentLV"))
-		{
-			if (CheckMainWnd())
-			{
-				if (RecognizeLV() >= 17)
-				{
-					Navigation = _T("goTask");
-				}
-				else
-				{
-					UpStatus(_T("等级不满足，跳过师门任务"));
-					return true;
-				}
-			}
-		}
-
-
-		if (Navigation == _T("goTask"))
-		{
-			if (!GetTask(_T("师门"), true))
-			{
-				if (!GetTask(_T("师门"), false))
-					return false;
-			}
-		}
-
-		//使用任务道具
-		if (Find(_T("使用任务道具"),true))
-			UpStatus(_T("使用任务道具"));
-
-
-		CheckMove();
-		SleepEx(GetRandom(1000, 15000));
 
 	}
 
