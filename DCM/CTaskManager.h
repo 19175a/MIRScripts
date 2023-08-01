@@ -17,6 +17,8 @@ public:
 
 	//ÔÝÍ£
 	void Resume(int id = -1);
+
+	//»Ö¸´
 	void Suspend(int id = -1);
 private:
 	tagTaskInfo* GetInfo(int id);

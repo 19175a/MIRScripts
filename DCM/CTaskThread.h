@@ -142,7 +142,6 @@ protected:
 
 
 
-
 #ifdef OPENCV_NEED
 	double cvfind(CString strUI, CPoint& ptFind);
 #endif

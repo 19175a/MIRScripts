@@ -23,4 +23,5 @@ protected:
 	DECLARE_MESSAGE_MAP()
 public:
 	CEdit LV;
+	CEdit WndQuantity;
 };

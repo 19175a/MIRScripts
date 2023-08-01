@@ -25,6 +25,7 @@ void Dialog1::DoDataExchange(CDataExchange* pDX)
 {
 	CDialogEx::DoDataExchange(pDX);
 	DDX_Control(pDX, IDC_EDIT1, LV);
+	DDX_Control(pDX, IDC_EDIT2_WndQuantity, WndQuantity);
 }
 
 

@@ -2,6 +2,8 @@
 #include "CTaskScript.h"
 #include "CDCMEngine.h"
 #include"obj.h"
+#include"utils.h"
+
 extern CDCMEngine* g_pEngine;
 class CGameAssets;
 CTaskScript::CTaskScript(tagWndInfo* pWnd) :CTaskThread(pWnd)
@@ -18,61 +20,29 @@ CTaskScript::~CTaskScript()
 
 bool CTaskScript::OnLoop()
 {
+	//图片转换base64字符串
 
-	//GetTask(_T("师门"), false);
+	CString strstatus;
+	strstatus.Format(_T("%s：测试成功"), m_pWnd->strTitle);
+	//AfxMessageBox(strstatus);
 
-	DoTask();
+	UpStatus(strstatus);
 
-	//bool Tmp1 = true;
-	//while (true)
-	//{
-	//	if (Identity == _T("队长"))
-	//	{
-	//		SendToMember();
-	//		
-	//	}
-	//	else if (Identity == _T("队员"))
-	//	{
+	//m_pDm->SetWindowSize((long)m_pWnd->hWnd, 960, 540);
 
-
-	//		//SendOnline();
-	//		Tmp1 = false;
-
-
-	//	}
-
-	//	SleepEx(1000);
-
-	//	ReceiveCommand();
-	//}
+	//CFile file;
+	//file.Open(g_pEngine->m_strWorkPath+ _T("\\res\\NPC对话.bmp"), CFile::modeRead);      //打开图像文件
+	//DWORD dwDataLen = file.GetLength();        //获取文件的长度
+	//BYTE* buf = new BYTE[dwDataLen];           //创建数组，用来保存图像的数据
+	//memset(buf, 0x00, dwDataLen);              //初始化数组
+	//file.Read(buf, dwDataLen);            //图像文件的数据保存在数组中
+	//std::string strEncoded = Base64_Encode(buf, file.GetLength());
+	//file.Close();                            //关闭文件
 
 
- 	return true;
-}
+	//CMapStringToString Tset;
+	////CString ret =   HttpPost(_T("http://api.ttshitu.com/predict"), strEncoded,_T(""));
 
-bool CTaskScript::Task(CString TaskName)
-{
+	return true;
 
-	if (TaskName == _T("主线任务"))
-	{
-		TaskMain();
-
-	}
-	else if (TaskName == _T("师门任务"))
-	{
-		TaskShiMen();
-	}
-
-	return false;
-}
-
-void CTaskScript::DoTask()
-{
-	LoginGame();
-
-	for (int i = 0; i < m_pWnd->pTaskInfo->m_arrTaskItem.GetCount(); i++)
-	{
-		m_pWnd->pTaskInfo->pStatus->CurrentTask = m_pWnd->pTaskInfo->m_arrTaskItem.GetAt(i);
-		Task(m_pWnd->pTaskInfo->m_arrTaskItem.GetAt(i));
-	}
 }

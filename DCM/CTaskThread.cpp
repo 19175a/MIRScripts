@@ -512,6 +512,8 @@ CPoint CTaskThread::FindsRetsingle(CString UiNames)
 }
 
 
+
+
 bool CTaskThread::FindRets(CString UiName, CArray<AllCoordinates>& m_AllCoordinates)
 {
 	tagResItem* pItem = g_pEngine->GetResItem(UiName);
@@ -869,7 +871,7 @@ CString CTaskThread::HttpPost(CString strUrl, CMapStringToString& pMap)
 	if (ret != 0)
 	{
 		LogE(_T("%s: HttpPost: url:%s  ÇëÇó³¬Ê±£¬¼ì²éÍøÂç"), m_pWnd->strTitle, strUrl);
-	}
+	}	
 	else
 	{
 		std::string szBody;

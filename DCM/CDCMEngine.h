@@ -11,11 +11,16 @@ public:
 	virtual  ~CDCMEngine();
 
 public:
+
+	//初始化引擎
 	void Init();
 
 	int GetWndList();
 
+	//启动游戏
 	void Start(int id = -1);
+
+	//结束游戏
 	void Stop(int id = -1);
 
 	void Suspend(int id = -1);
@@ -36,7 +41,7 @@ public:
 
 	tagResItem* GetResItem(CString strName);
 
-	//获取启动好的窗口信息
+	//检测窗口是否启动
 	bool IsWndReady(int id);
 
 	tagTaskInfo* GetTaskInfo(int id);
@@ -108,12 +113,16 @@ public:
 	//是否开始绘制
 	bool tagOnDraw;
 
+	//用户自定义开多数量
+	int WndQuantity;
+
 private:
 	//窗口管理
 	CWndManager* m_pWndMgr;
+
+	//任务管理
 	CTaskManager* m_pTaskMgr;
-	//逻辑任务
-	//资源管理
+
 
 private:
 	void ReadWndIni();

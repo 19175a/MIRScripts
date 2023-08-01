@@ -2,7 +2,10 @@
 #include "CWndManager.h"
 #include "CDCMEngine.h"
 #include "struct.h"
+#include"obj.h"
 extern CDCMEngine* g_pEngine;
+
+class dmsoft;
 
 CWndManager::CWndManager()
 {
@@ -22,17 +25,22 @@ int CWndManager::GetWndList()
 	for (int i = 0; i < arrEnumWnd.GetSize(); i++)
 	{
 		tagWndInfo info;
-		info.id = (int)arrEnumWnd[i].hWnds[0];
 		info.hWnd = arrEnumWnd[i].hWnds[0];
-		info.strTitle = arrEnumWnd[i].szTitleWord;
+		if (info.hWnd==NULL)
+			continue;
+		info.strTitle = g_pEngine->m_pDm->GetWindowTitle((long)info.hWnd);
 		::GetWindowRect(info.hWnd, info.rtWnd);
 
 		bool bExist = false;
 		for (int j = 0; j < g_pEngine->m_arrWnd.GetCount(); j++)
 		{
-			if (info.hWnd == g_pEngine->m_arrWnd[j]->hWnd)
+			if (info.strTitle == g_pEngine->m_arrWnd[j]->strTitle)
 			{
 				g_pEngine->m_arrWnd[j]->rtWnd = info.rtWnd;
+				CString strId = g_pEngine->m_pDm->GetWindowTitle((long)info.hWnd);
+				CString strGetId = (CString)strId[6];
+				g_pEngine->m_arrWnd[j]->id = _ttoi(strGetId);
+
 				g_pEngine->m_arrWnd[j]->strTitle = info.strTitle;
 				bExist = true;
 				break;
@@ -42,10 +50,13 @@ int CWndManager::GetWndList()
 		if (!bExist)
 		{
 			tagWndInfo* pInfo = new tagWndInfo;
-			pInfo->id = info.id;
+			CString strId  = g_pEngine->m_pDm->GetWindowTitle((long)info.hWnd);
+			CString strGetId = (CString)strId[6];
+			pInfo->id = _ttoi(strGetId);
+			LogD(_T("新增游戏窗口ID为：%d "), pInfo->id);
 			pInfo->hWnd = info.hWnd;
 			pInfo->rtWnd = info.rtWnd;
-			pInfo->strTitle = info.strTitle;
+			pInfo->strTitle = strId;		//id 对应标题名
 
 			g_pEngine->m_arrWnd.Add(pInfo);
 		}

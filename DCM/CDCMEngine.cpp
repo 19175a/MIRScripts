@@ -139,6 +139,17 @@ int CDCMEngine::GetWndList()
 void CDCMEngine::Start(int id)
 {
 
+
+
+	//启动启动窗口，通过多开器
+	//通过标题匹配
+	//通过账号序号，启动窗口
+
+
+
+
+
+
 	//通过雷电命令启动对应下标的窗口
 	if (!IsWndReady(id))
 	{
@@ -157,7 +168,7 @@ void CDCMEngine::Start(int id)
 	}
 
 	if (IsWndReady(id))
-		m_pTaskMgr->Start(id);
+	m_pTaskMgr->Start(id);
 }
 
 void CDCMEngine::Stop(int id)
@@ -399,7 +410,7 @@ bool CDCMEngine::IsWndReady(int id)
 	for (int i = 0; i < m_arrWnd.GetCount(); i++)
 	{
 		tagWndInfo* pInfo = m_arrWnd[i];
-		if (pInfo->id == id)
+		if (pInfo->id == (id-1))
 		{
 			if (pInfo->hWnd != NULL && IsWindow(pInfo->hWnd))
 				return true;
@@ -504,8 +515,8 @@ int CDCMEngine::获取组长ID(int id)
 
 bool CDCMEngine::getGameAccountInfo()
 {
-	m_pWndMgr->GetGameAccountInfo();
-	return true;
+	
+	return m_pWndMgr->GetGameAccountInfo();
 }
 
 tagGameAcconutInfo* CDCMEngine::GetpairingAccount(int WndID)

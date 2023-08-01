@@ -136,6 +136,11 @@ BOOL CDCMDlg::OnInitDialog()
 	SetIcon(m_hIcon, TRUE);			// 设置大图标
 	SetIcon(m_hIcon, FALSE);		// 设置小图标
 
+	//初始化引擎
+	g_pEngine = new CDCMEngine();
+	g_pEngine->Init();
+
+
 	TCHAR szPath[256] = { 0 };
 	CWHService::GetWorkDirectory(szPath, 256);
 	m_strWorkPath = szPath;
@@ -145,14 +150,16 @@ BOOL CDCMDlg::OnInitDialog()
 	dwStyle |= LVS_EX_GRIDLINES;
 	dwStyle |= LVS_EX_CHECKBOXES;
 	m_lstWnd.SetExtendedStyle(dwStyle);
-	m_lstWnd.InsertColumn(0, _T("窗口句柄"), LVCFMT_CENTER, 80);
-	m_lstWnd.InsertColumn(1, _T("窗口标题"), LVCFMT_CENTER, 200);
-	m_lstWnd.InsertColumn(2, _T("游戏状态"), LVCFMT_CENTER, 200);
-	m_lstWnd.InsertColumn(3, _T("账号"), LVCFMT_CENTER, 200);
-	m_lstWnd.InsertColumn(4, _T("密码"), LVCFMT_CENTER, 200);
-	m_lstWnd.InsertColumn(5, _T("大区"), LVCFMT_CENTER, 80);
-	m_lstWnd.InsertColumn(6, _T("等级"), LVCFMT_CENTER, 50);
-	m_lstWnd.InsertColumn(7, _T("金币"), LVCFMT_CENTER, 90);
+	m_lstWnd.InsertColumn(0, _T("序号"), LVCFMT_CENTER, 80);
+	m_lstWnd.InsertColumn(1, _T("窗口句柄"), LVCFMT_CENTER, 80);
+	m_lstWnd.InsertColumn(2, _T("窗口标题"), LVCFMT_CENTER, 200);
+	m_lstWnd.InsertColumn(3, _T("游戏状态"), LVCFMT_CENTER, 200);
+	m_lstWnd.InsertColumn(4, _T("账号"), LVCFMT_CENTER, 200);
+	m_lstWnd.InsertColumn(5, _T("密码"), LVCFMT_CENTER, 200);
+	m_lstWnd.InsertColumn(6, _T("大区"), LVCFMT_CENTER, 80);
+	m_lstWnd.InsertColumn(7, _T("等级"), LVCFMT_CENTER, 50);
+	m_lstWnd.InsertColumn(8, _T("金币"), LVCFMT_CENTER, 90);
+	m_lstWnd.InsertColumn(9, _T("黑铁"), LVCFMT_CENTER, 90);
 
 	dwStyle = m_lstTask.GetExtendedStyle();
 	dwStyle |= LVS_EX_FULLROWSELECT;
@@ -198,9 +205,25 @@ BOOL CDCMDlg::OnInitDialog()
 
 	m_dlg1.LV.SetWindowTextW(_T("0"));
 
+	//读取账号数量并显示出来
+	if (g_pEngine->m_arrAccount.GetCount() == NULL)
+		AfxMessageBox(_T("请填写账号后使用脚本！！！"));
+	for (int i = 0; i < g_pEngine->m_arrAccount.GetCount(); i++)
+	{
+		//显示账号information
+		int iRow = m_lstWnd.GetItemCount();
+		m_lstWnd.InsertItem(iRow, _T(""));
 
-	g_pEngine = new CDCMEngine();
-	g_pEngine->Init();
+		CString strTextId;
+		strTextId.Format(_T("%d"), g_pEngine->m_arrAccount[i]->iWndId);
+		m_lstWnd.SetItemText(iRow, 0, strTextId);
+		m_lstWnd.SetItemText(iRow, 4, g_pEngine->m_arrAccount[i]->strAcconut);
+		m_lstWnd.SetItemText(iRow, 5, g_pEngine->m_arrAccount[i]->strPassword);
+		m_lstWnd.SetItemText(iRow, 6, g_pEngine->m_arrAccount[i]->strRegion);
+	}
+
+
+
 
 	SetTimer(TIME_UPDATE_WND, 3000, NULL);
 
@@ -261,27 +284,36 @@ HCURSOR CDCMDlg::OnQueryDragIcon()
 void CDCMDlg::OnBnClickedButtonStart()
 {
 
-	//读取控制台待执行任务项，并添加到任务列表
-	//如果没有单独配置的则默认是控制台所选的任务
-	for (int i = 0; i < m_lstTaskRun.GetItemCount(); i++)
-	{
-		CString strTmp = m_lstTaskRun.GetItemText(i, 0);
-		g_pEngine->m_arrTaskItem.Add(strTmp);
-	}
 
 
-	//获取绘制选择状态
-	g_pEngine->tagOnDraw = CheckDraw.GetCheck();
 
 
 	CString strTxt;
 	m_btStart.GetWindowText(strTxt);
 
-	CArray<int> arrChk;
-	m_strParam = GetCheckList(arrChk);
-
 	if (strTxt == _T("启动"))
 	{
+		//读取控制台待执行任务项，并添加到任务列表
+		//如果没有单独配置的则默认是控制台所选的任务
+		for (int i = 0; i < m_lstTaskRun.GetItemCount(); i++)
+		{
+			CString strTmp = m_lstTaskRun.GetItemText(i, 0);
+			g_pEngine->m_arrTaskItem.Add(strTmp);
+		}
+
+
+		//获取绘制选择状态
+		g_pEngine->tagOnDraw = CheckDraw.GetCheck();
+
+		//保存启动窗口参数
+		CArray<int> arrChk;
+		m_strParam = GetCheckList(arrChk);
+
+		//保存多开数量
+		CString strWnd;
+		m_dlg1.WndQuantity.GetWindowText(strWnd);
+		g_pEngine->WndQuantity = _ttoi(strWnd);
+
 		m_strCmd = _T("启动");
 		m_btStart.SetWindowText(_T("停止"));
 	}
@@ -315,60 +347,40 @@ void CDCMDlg::OnTimer(UINT_PTR nIDEvent)
 	{
 		g_pEngine->GetWndList();
 
-		if (g_pEngine->m_arrWnd.GetCount() > 0)
+		for (int i = 0; i < g_pEngine->m_arrWnd.GetCount(); i++)
 		{
-			for (int i = 0; i < g_pEngine->m_arrWnd.GetCount(); i++)
+			for (int j = 0; j < m_lstWnd.GetItemCount(); j++)
 			{
-				int id = (int)g_pEngine->m_arrWnd[i]->id;
-
-				if (IsWndExist(id)) //更新这行
+				if (g_pEngine->m_arrWnd[i]->id == _ttoi(m_lstWnd.GetItemText(j, 0)))
 				{
+					CString strHwnd;
+					strHwnd.Format(_T("%d"), g_pEngine->m_arrWnd[i]->hWnd);
+					m_lstWnd.SetItemText(j, 1, strHwnd);
 
-					//更新账号切换
+					m_lstWnd.SetItemText(j, 2, g_pEngine->m_arrWnd[i]->strTitle);
 
-
-					//更新状态
-					m_lstWnd.SetItemText(i, 1, g_pEngine->m_arrWnd[i]->strTitle);
-					tagGameStatus* pStatus = g_pEngine->GetGameStatus(id);
+					//线程启动后更新的状态
+					tagGameStatus* pStatus = g_pEngine->GetGameStatus(g_pEngine->m_arrWnd[i]->id);
 					if (pStatus)
 					{
 						CString Content;
 						Content.Format(_T("%s"), pStatus->strContent);
-						m_lstWnd.SetItemText(i, 2, Content); //更新状态
-
-						CString strILV;
-						strILV.Format(_T("%d"), pStatus->ILV);
-						m_lstWnd.SetItemText(i, 6, strILV);	  //更新等级
-
-						CString strGold;
-						strGold.Format(_T("%s"), pStatus->strGold);
-						m_lstWnd.SetItemText(i, 7, strGold);  //更新金币
+						m_lstWnd.SetItemText(j, 3, Content); //更新状态
 
 					}
-				}
-				else //插入一行
-				{
-
-					tagGameAcconutInfo* arrTmp = GetAcconutIdInfo(_ttoi(I2S((int)g_pEngine->m_arrWnd[i]->id)));
-					int iRow = m_lstWnd.GetItemCount();
-					m_lstWnd.InsertItem(iRow, _T(""));
-
-					m_lstWnd.SetItemText(i, 0, I2S((int)g_pEngine->m_arrWnd[i]->id));
-					m_lstWnd.SetItemText(i, 1, g_pEngine->m_arrWnd[i]->strTitle);
-					if (arrTmp)
-					{
-						//显示账号information
-						m_lstWnd.SetItemText(i, 3, arrTmp->strAcconut);
-						m_lstWnd.SetItemText(i, 4, arrTmp->strPassword);
-						m_lstWnd.SetItemText(i, 5, arrTmp->strRegion);
-					}
-
 				}
 			}
 		}
-
-		//KillTimer(TIME_UPDATE_WND);
 	}
+
+	//CString strTxt;
+	//m_btStart.GetWindowText(strTxt);
+	//if (strTxt == _T("停止"))
+	//{
+	//	m_strCmd == _T("启动");
+	//}
+
+
 
 	CDialogEx::OnTimer(nIDEvent);
 }
@@ -390,12 +402,14 @@ CString CDCMDlg::GetCheckList(CArray<int>& arrCheckID)
 	CString strID = _T("");
 	for (int i = 0; i < m_lstWnd.GetItemCount(); i++)
 	{
-		if (m_lstWnd.GetCheck(i))
-		{
-			CString strTmp = m_lstWnd.GetItemText(i, 0);
-			arrCheckID.Add(_ttoi(strTmp));
-			strID += strTmp + _T("-");
-		}
+		CString strTmp = m_lstWnd.GetItemText(i, 0);
+		arrCheckID.Add(_ttoi(strTmp));
+		strID += strTmp + _T("-");
+
+		//if (m_lstWnd.GetCheck(i))
+		//{
+
+		//}
 	}
 
 	return strID;
@@ -404,6 +418,9 @@ CString CDCMDlg::GetCheckList(CArray<int>& arrCheckID)
 UINT CDCMDlg::CDMEngineThread(LPVOID pParam)
 {
 	CDCMDlg* pThis = (CDCMDlg*)pParam;
+
+
+
 
 	CoInitializeEx(NULL, 0);
 
@@ -601,7 +618,7 @@ void CDCMDlg::OnTcnSelchangeTab2Groupingfolder(NMHDR* pNMHDR, LRESULT* pResult)
 	*pResult = 0;
 
 
-	
+
 }
 
 
